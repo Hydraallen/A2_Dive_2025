@@ -198,21 +198,27 @@ def merge_html_files(file_paths, output_path, titles=None):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='合并多个Vega-Lite HTML文件')
-    parser.add_argument('files', nargs='+', help='要合并的HTML文件路径（可以是2个或更多）')
-    parser.add_argument('-o', '--output', default='merged_dashboard.html', 
-                        help='输出文件路径 (默认: merged_dashboard.html)')
-    parser.add_argument('-t', '--titles', nargs='+', 
-                        help='每个可视化的标题（可选）')
+    # 直接指定要合并的文件
+    files = [
+        "michigan_choropleth.html",
+        "michigan_choropleth2.html", 
+        "expenditure_contribution_dashboard.html"
+    ]
     
-    args = parser.parse_args()
+    # 自定义标题（可选）
+    titles = [
+        "🗺️ Michigan Counties - Log Average Amount by County(Expenditure)",
+        "📊 Michigan Counties - Log Average Amount by County(Contribution)",
+        "📈 Trend Analysis Over Time"
+    ]
+    
+    output = "index.html"
     
     try:
-        merge_html_files(args.files, args.output, args.titles)
-        print(f"🎉 合并完成！请在浏览器中打开 {args.output} 查看结果。")
-        print(f"📊 共合并了 {len(args.files)} 个可视化图表")
+        merge_html_files(files, output, titles)
+        print(f"🎉 合并完成！请在浏览器中打开 {output} 查看结果。")
+        print(f"📊 共合并了 {len(files)} 个可视化图表")
     except Exception as e:
         print(f"❌ 发生错误: {e}")
         import traceback
         traceback.print_exc()
-
