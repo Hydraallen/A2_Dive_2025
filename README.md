@@ -1,6 +1,8 @@
 # README
 
-## [Online Review](https://hydraallen.github.io/A2_Dive_2025/)
+## [Live Site Link](https://hydraallen.github.io/A2_Dive_2025/)
+
+This site is for A2 Dive 2025 and we got first place.
 
 ## This is repository for A2 Dive 2025
 
